@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght,CRSV@100..900,0&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    font-family: "Geologica", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    background-color: #0F1115;
+    color: #efefef;
+}
+
+a {
+    
+    color: #efefef;
+}
+
+.header {
+    height: 80px;
+    background-color: #16191E;
+}
+
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header__info {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding-top: 15px;
+}
+
+.header__info img {
+    margin-top: 2px;
+    width: 250px;
+}
+
+.header__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 80px;
+}
+
+.header__list li {
+    padding: 0px 23px;
+    padding-block: 3px;
+    border: 2px solid #6b7382;
+    border-radius: 5px;
+    background-color: #4a515f;
+}
+
+.header__list a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 30px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: 2px solid #8e460b;
+    border-radius: 5px;
+    background-color: #E97A21;
+}
