@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Geologica:wght,CRSV@100..900,0&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
     margin: 0;
@@ -7,68 +7,185 @@
 }
 
 body {
-    font-family: "Inter", sans-serif;
-    font-family: "Geologica", sans-serif;
-    font-weight: 600;
+    height: 2498px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
     font-size: 20px;
-    background-color: #0F1115;
-    color: #efefef;
+    letter-spacing: 3%;
+    background-color: #000414;
+    color: #E2E8F0;
 }
 
 a {
-    
-    color: #efefef;
+    color: #E2E8F0;
+    text-decoration: none;
 }
+
+ul {
+    list-style: none;
+}
+
+.content {}
+
+/*! Header */
 
 .header {
-    height: 80px;
-    background-color: #16191E;
+    height: 86px;
+    background-color: #0E151D;
 }
 
-.content {
-    max-width: 1200px;
+.header__content {
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 0 20px;
 }
 
-.header__info {
+.header__content {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: center;
-    padding-top: 15px;
+    height: 86px;
 }
 
-.header__info img {
-    margin-top: 2px;
-    width: 250px;
+.header__logo {
+    margin-left: 50px;
+    width: 156px;
+}
+
+.header__nav {
+    margin: 0px 20px;
 }
 
 .header__list {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 80px;
 }
 
-.header__list li {
-    padding: 0px 23px;
-    padding-block: 3px;
-    border: 2px solid #6b7382;
-    border-radius: 5px;
-    background-color: #4a515f;
+.header__activ {
+    margin: 0px 90px;
 }
 
-.header__list a {
+.header__list a:hover {
+    color: #d1d1d1;
+    opacity: 0.7;
+}
+
+.header__btn {
+    margin-right: 50px;
+    padding: 0px 27px;
+    padding-block: 7px 6px;
+    border-radius: 10px;
+    background-color: orange;
+}
+
+.header__btn:hover {
+    background-color: rgb(194, 126, 0);
+}
+
+/*! MAIN - Banner */
+
+.main__content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ГЛАВНЫЙ КОНТЕЙНЕР (держит в себе всё) */
+.banner {
+    position: relative; /* Обязательно для слоев */
+    max-width: 966px;
+    height: 498px;
+    margin: 40px auto;
+    border-radius: 40px; /* Скругление перенесли на сам блок */
+    overflow: hidden; /* Обрезает картинку по углам скругления */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80px;
-    height: 30px;
+    align-items: center; /* Автоматически центрирует контент по вертикали! */
+    
+    /* Темный цвет фона сайта (чтобы градиент сливался с фоном) */
+    background-color: #000414; 
 }
 
-.btn {
-    padding: 10px 20px;
-    border: 2px solid #8e460b;
-    border-radius: 5px;
-    background-color: #E97A21;
+/* СЛОЙ 1: КАРТИНКА */
+.banner__img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 70%; /* Картинка занимает только правую часть */
+    height: 100%;
+    z-index: 1;
+}
+
+.banner__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Заполняет блок без искажения пропорций */
+    object-position: center;
+}
+
+/* СЛОЙ 2: ПЛАВНЫЙ ГРАДИЕНТ (Затемнение) */
+.banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Градиент от цвета фона (слева) до прозрачного (справа) */
+    background: linear-gradient(to right, #000414 35%, rgba(11, 13, 20, 0) 100%);
+    z-index: 2;
+}
+
+/* СЛОЙ 3: ТЕКСТ И КНОПКА */
+.banner__content {
+    position: relative;
+    z-index: 3; /* Текст ВСЕГДА выше градиента и картинки */
+    max-width: 500px; /* Ограничиваем ширину текста */
+    padding-left: 60px; /* Твой отступ слева */
+    font-family: "Montserrat", sans-serif;
+    color: #ffffff;
+}
+
+.banner__title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.banner__text {
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 500;
+    margin-bottom: 40px;
+    color: #e2e8f0; /* Чуть-чуть тусклее заголовка, как на скрине */
+}
+
+.banner__info {
+    font-size: 14px;
+    margin-bottom: 30px;
+    color: #a0aec0; /* Серый цвет для доп. инфы */
+}
+
+/* КНОПКА (Flexbox решает проблему с иконкой) */
+.banner__btn {
+    display: inline-flex;
+    align-items: center; /* Центрирует иконку и текст на одной линии */
+    gap: 12px; /* Расстояние между иконкой и текстом */
+    padding: 16px 36px;
+    background: linear-gradient(90deg, #FF383C 0%, #ff5252 100%); /* Красивый градиентный красный */
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 40px;
+    transition: 0.3s;
+}
+
+.banner__btn:hover {
+    transform: scale(1.05); /* Легкое увеличение при наведении */
+    box-shadow: 0 4px 15px rgba(255, 56, 60, 0.4);
+}
+
+.banner__btn img {
+    width: 20px; /* Фиксированный размер для svg-иконки */
+    height: 20px;
 }
